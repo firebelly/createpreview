@@ -1,0 +1,112 @@
+/* START CUSTOMIZING! */
+body{
+	background: #F2F2F2; /* customize to match jpegs for optimal trickery */
+	width: 1300px;/* width of jpges */
+	margin: 0 auto;
+	position: relative;
+}
+.guide{
+	background: #fff; /* customize to background color of content */
+	display: block;
+	width: 640px; /* customize to the width of the site or the width of the main content column for optimal trickery */
+	margin: 0 auto;
+	padding: 20px; 
+	overflow: hidden;
+}
+
+p{
+}
+
+a{
+}
+
+strong{
+	font-weight: bold;
+}
+
+cite, em{
+	font-style: italic;
+}
+
+sup, sub {
+    height: 0;
+    line-height: 1;
+    position: relative;
+    vertical-align: baseline;
+    font-size: 10px;
+}
+sup {
+    bottom: 1ex;
+}
+abbr, acronym {
+    border-bottom: 1px dotted #666666;
+    cursor: help;
+}
+
+h1, h2, h3, h4, h5, h5{
+	clear: both;
+}
+
+h1{
+}
+h2{
+}
+h3{
+}
+h4{
+}
+h5{
+}
+h6{
+}
+
+blockquote{
+}
+
+hr{
+	background-color: #E7E7E7;
+    border: 0 none;
+    clear: both;
+    height: 1px;
+}
+
+ul{
+}
+ul li ul{
+}
+ul li{
+}
+
+dl{
+}
+dl dt{
+}
+dl dd{
+}
+
+table{
+}
+th{
+}
+td{
+}
+tr.even td{
+}
+
+/* Image-related classes from Wordpress (forgive their ugliness) */
+.alignright, img.alignright{
+	display: inline;
+    float: right;
+}
+.alignleft, img.alignleft{
+	display: inline;
+    float: left;
+}
+.aligncenter, img.aligncenter{
+	display: block;
+    margin: 0 auto;
+}
+div.wp-caption{
+}
+div.wp-caption p.wp-caption-text{
+}

@@ -70,6 +70,17 @@ post '/:project/' do
     halt "Could not setup the index file."
   end
   
+  begin
+    S3Object.store(
+      "#{project}/css/custom.css",
+      open(File.join(File.dirname(__FILE__), 'templates', 'custom.css')),
+      settings.bucket,
+      :access => :public_read
+    )
+  rescue ResponseError => error
+    halt "Could not setup the index file."
+  end
+  
   session[:project] = project
   redirect "/success/"
 end

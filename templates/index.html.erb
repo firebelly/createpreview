@@ -3,260 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <title>Firebelly Design - Client Preview</title>
-  <style type="text/css"/>
-/*------------------------------------*\
-  RESET
-\*------------------------------------*/
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0b1 | 201101
-   NOTE:WORK IN PROGRESS
-   USE WITH CAUTION AND TEST WITH ABANDON */
-
-html,body,div,span,applet,object,iframe,
-h1,h2,h3,h4,h5,h6,p,blockquote,pre,
-a,abbr,acronym,address,big,cite,code,
-del,dfn,em,img,ins,kbd,q,s,samp,
-small,strike,strong,sub,sup,tt,var,
-b,u,i,center,
-dl,dt,dd,ol,ul,li,
-fieldset,form,label,legend,
-table,caption,tbody,tfoot,thead,tr,th,td,
-article,aside,canvas,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section,summary,
-time,mark,audio,video{
-  margin:0;
-  padding:0;
-  border:0;
-  outline:0;
-  font-size:100%;
-  font:inherit;
-  vertical-align:baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section{
-  display:block;
-}
-body{
-  line-height:1;
-}
-ol,ul{
-  list-style:none;
-}
-blockquote,q{
-  quotes:none;
-}
-blockquote:before,blockquote:after,
-q:before,q:after{
-  content:'';
-  content:none;
-}
-/* remember to define visible focus styles!
-:focus{
-  outline:?????;
-} */
-
-/* remember to highlight inserts somehow! */
-ins{
-  text-decoration:none;
-}
-del{
-  text-decoration:line-through;
-}
-
-table{
-  border-collapse:collapse;
-  border-spacing:0;
-}
-
-/*------------------------------------*\
-  MAIN
-\*------------------------------------*/
-
-/* cycle pager styles */
-#nav{
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 10;
-	line-height: 30px;
-	height: 30px;
-	/*push the nav away from the top of the browser- don't use padding or the page will jump on navigating*/
-	background: rgba(0, 0, 0, .7);
-	width: 100%;
-	color: #ededef;
-	padding-left: 4px;
-    font-family: 'Inconsolata', arial, serif;
-}
-#nav a{
-	padding: 3px;
-	text-decoration: none;
-	color: #fff;
-}
-#nav a:hover{
-    text-decoration: underline;
-}
-#nav a.activeSlide{
-    color: #578EDF;
-	text-decoration: underline;
-}
-#nav a small {
-    color: #eaeaea;
-    font-size: 10px;
-    padding: 0 5px;
-}
-
-/* Branding specific to Firebelly */
-@font-face {
-    font-family: 'FlamaMedium';
-    src: url('flamamedium-webfont.eot');
-    src: url('flamamedium-webfont.eot?iefix') format('eot'),
-         url('flamamedium-webfont.woff') format('woff'),
-         url('flamamedium-webfont.ttf') format('truetype'),
-         url('flamamedium-webfont.svg#webfonttNf9Q5S6') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-.branding{
-    margin: 30px auto;
-    padding: 50px 0;
-    text-align: center;
-    background: #fff;
-    display: block;
-}
-.branding h2{
-    padding: 14px 0;
-    font-family: FlamaMedium;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: .7pt;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #345CAD;
-}
-
-/* START CUSTOMIZING! */
-body{
-	background: #F2F2F2; /* customize to match jpegs for optimal trickery */
-	width: 1300px;/* width of jpges */
-	margin: 0 auto;
-	position: relative;
-}
-body, 
-.container > div{
-	width: 1300px;
-}
-.container .slide{
-    display: none;
-    padding-top: 30px;
-}
-.guide{
-	background: #fff; /* customize to background color of content */
-	display: block;
-	width: 640px; /* customize to the width of the site or the width of the main content column for optimal trickery */
-	margin: 0 auto;
-	padding: 20px; 
-	overflow: hidden;
-}
-
-p{
-}
-
-a{
-}
-
-strong{
-	font-weight: bold;
-}
-
-cite, em{
-	font-style: italic;
-}
-
-sup, sub {
-    height: 0;
-    line-height: 1;
-    position: relative;
-    vertical-align: baseline;
-    font-size: 10px;
-}
-sup {
-    bottom: 1ex;
-}
-abbr, acronym {
-    border-bottom: 1px dotted #666666;
-    cursor: help;
-}
-
-h1, h2, h3, h4, h5, h5{
-	clear: both;
-}
-
-h1{
-}
-h2{
-}
-h3{
-}
-h4{
-}
-h5{
-}
-h6{
-}
-
-blockquote{
-}
-
-hr{
-	background-color: #E7E7E7;
-    border: 0 none;
-    clear: both;
-    height: 1px;
-}
-
-ul{
-}
-ul li ul{
-}
-ul li{
-}
-
-dl{
-}
-dl dt{
-}
-dl dd{
-}
-
-table{
-}
-th{
-}
-td{
-}
-tr.even td{
-}
-
-/* Image-related classes from Wordpress (forgive their ugliness) */
-.alignright, img.alignright{
-	display: inline;
-    float: right;
-}
-.alignleft, img.alignleft{
-	display: inline;
-    float: left;
-}
-.aligncenter, img.aligncenter{
-	display: block;
-    margin: 0 auto;
-}
-div.wp-caption{
-}
-div.wp-caption p.wp-caption-text{
-}
-
-  </style
+  <link rel="stylesheet" href="http://client-preview.firebellydesign.com/createpreview/css/core.css" type="text/css">
+  <!-- Customize this css file as necessary. -->
+  <link rel="stylesheet" href="css/custom.css" type="text/css">
   <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -265,72 +14,16 @@ div.wp-caption p.wp-caption-text{
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
   <!-- include Cycle plugin --> 
   <script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script> 
-  <script type="text/javascript"> 
-  $(document).ready(function() {    
-    /* SETUP: */
-    /* list the filenames of your images here, within the brackets. */
-    /* filenames should be enclosed in single quotes, i.e. 'image.jpg' */
-    image_array = [<% for image in images %>'<%= image %>',<% end %>];
-    
-    /* insert the client and project name here, within quotes */
-    client_name = '<%= client %>';
-    
-    /* NO MORE EDITING UNTIL CONTENT BODY (see note re: image placeholder) */
-    /***********************************/
-    /***********************************/
-    $('#welcome h2 span').text(client_name);
-    
-    var bc = $('#nav');
-    var last_element = $('#placeholder');
- 	<% if banner %>
- 	$(last_element).after($('#welcome'));
-    $("#welcome").show();
- 	last_element = $('#welcome')
-    <% end %>
-    $.each(image_array, function(index, value){
-      var slide = $('<img>');
-      slide.attr('src', './images/' + value);
-      var slide_holder = $('<div class="slide" id="slide' + index + '">');
-      $(slide_holder).append(slide);
-      $(last_element).after(slide_holder);
-      last_element = slide_holder;
-    });
-    <% if style %>
-    $(last_element).after($('#style_guide'));
-    <% end %>
-    <% if !banner %>
-    $("#slide0").show();
-    <% end %>
+  <script type="text/javascript">
+  /* SETUP: */
+  /* list the filenames of your images here, within the brackets. */
+  /* filenames should be enclosed in single quotes, i.e. 'image.jpg' */
+  image_array = [<% for image in images %>'<%= image %>',<% end %>];
 
-    /***********************************/    
-    /**  
-      use "poor man's pager" to include hash 	in URL
-      for easy linking and refreshing
-    */
-    $('.container .slide').each(function (i, e) {
-       var slide_number = parseInt(i + 1);
-       var slide = $(e).attr('id')
-       $('<a id="link-' + slide + '"href="#' + slide + '">' + slide_number + '</a>')
-       .appendTo(bc).click(function(){
-           displaySlide(slide);
-       });
-   });
-  });
-
-   if (location.hash) {
-       displaySlide(location.hash);
-   }
-
-   function displaySlide(slide){
-	   $(".slide").hide();
-	   $("#" + slide).show();
-	   $(".activeSlide").removeClass("activeSlide");
-	   $("#link-" + slide).addClass("activeSlide");
-	   $(window).scrollTop(0);
-   }
-   /***********************************/
-   /***********************************/
+  /* insert the client and project name here, within quotes */
+  client_name = '<%= client %>';
   </script>
+  <script type="text/javascript" src="http://client-preview.firebellydesign.com/createpreview/js/slides.js"></script>
 </head>
 <!--
 March 28, 2011
@@ -350,12 +43,13 @@ Replaced PHP directory parsing script with javascript array
 <body id="home">
 
   <div class="container">
-  	<div id="placeholder"></div>
   	<% if banner %>
     <div id="welcome" class="slide branding">
-      <img src="./branding.png" />
+      <img src="http://client-preview.firebellydesign.com/createpreview/branding.png" />
       <h2>Website Composition Preview for: <br /><span></span></h2>
     </div>
+    <% else %>
+  	<div id="placeholder"></div>
     <% end %>
     <% if style %>
     <!--start style guide-->
@@ -522,8 +216,6 @@ Replaced PHP directory parsing script with javascript array
     </div><!--/end style guide-->
     <% end %>
   </div><!--/container-->
-  
-  <div id="nav">Preview page: </div> 
-
+  <div id="nav">Preview page: </div>
 </body>
 </html>
