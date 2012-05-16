@@ -15,6 +15,13 @@ require "capify-fb/sync" # sync assets and db between stages. sync:down pulls fr
 set :use_s3, true
 require "capify-fb/s3"
 
+# Override deploy migrate task
+namespace :deploy do
+  task :migrate do
+  
+  end
+end
+
 # Which folders to sync.
 # Remember to run sync:setup before deploying.
 # set :sync_directories, ["public/assets", "public/galleries"]
