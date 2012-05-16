@@ -1,0 +1,16 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+<script type="text/javascript" src="/validate.js"></script>
+<form id="cpForm" action="/<%= project %>/" method="post">
+  <label for="client">Client and project name here:</label><br/>
+  <input type="text" name="client" class="required" ><br/><br/>
+  <label for="images">Select images to use:</label><br/>
+  <% for image in images %>
+  <input type="checkbox" name="images[]" value="<%= image %>"><%= image %></br>
+  <% end %>
+  <br/>
+  <input type="checkbox" name="banner" checked>Include Firebelly Banner</br>
+  <input type="checkbox" name="style" checked>Include style guide</br></br>
+  <div>NOTE: If the the index.html file already exists, it will be replaced.</div>
+  <input type="submit" value="Send">
+</form>

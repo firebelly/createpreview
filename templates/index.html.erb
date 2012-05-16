@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Firebelly Design - Client Preview</title>
+  <style type="text/css"/>
+/*------------------------------------*\
+  RESET
+\*------------------------------------*/
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0b1 | 201101
+   NOTE:WORK IN PROGRESS
+   USE WITH CAUTION AND TEST WITH ABANDON */
+
+html,body,div,span,applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,
+del,dfn,em,img,ins,kbd,q,s,samp,
+small,strike,strong,sub,sup,tt,var,
+b,u,i,center,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary,
+time,mark,audio,video{
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  font:inherit;
+  vertical-align:baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section{
+  display:block;
+}
+body{
+  line-height:1;
+}
+ol,ul{
+  list-style:none;
+}
+blockquote,q{
+  quotes:none;
+}
+blockquote:before,blockquote:after,
+q:before,q:after{
+  content:'';
+  content:none;
+}
+/* remember to define visible focus styles!
+:focus{
+  outline:?????;
+} */
+
+/* remember to highlight inserts somehow! */
+ins{
+  text-decoration:none;
+}
+del{
+  text-decoration:line-through;
+}
+
+table{
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+/*------------------------------------*\
+  MAIN
+\*------------------------------------*/
+
+/* cycle pager styles */
+#nav{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	line-height: 30px;
+	height: 30px;
+	/*push the nav away from the top of the browser- don't use padding or the page will jump on navigating*/
+	background: rgba(0, 0, 0, .7);
+	width: 100%;
+	color: #ededef;
+	padding-left: 4px;
+    font-family: 'Inconsolata', arial, serif;
+}
+#nav a{
+	padding: 3px;
+	text-decoration: none;
+	color: #fff;
+}
+#nav a:hover{
+    text-decoration: underline;
+}
+#nav a.activeSlide{
+    color: #578EDF;
+	text-decoration: underline;
+}
+#nav a small {
+    color: #eaeaea;
+    font-size: 10px;
+    padding: 0 5px;
+}
+
+/* Branding specific to Firebelly */
+@font-face {
+    font-family: 'FlamaMedium';
+    src: url('flamamedium-webfont.eot');
+    src: url('flamamedium-webfont.eot?iefix') format('eot'),
+         url('flamamedium-webfont.woff') format('woff'),
+         url('flamamedium-webfont.ttf') format('truetype'),
+         url('flamamedium-webfont.svg#webfonttNf9Q5S6') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.branding{
+    margin: 30px auto;
+    padding: 50px 0;
+    text-align: center;
+    background: #fff;
+    display: block;
+}
+.branding h2{
+    padding: 14px 0;
+    font-family: FlamaMedium;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: .7pt;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #345CAD;
+}
+
+/* START CUSTOMIZING! */
+body{
+	background: #F2F2F2; /* customize to match jpegs for optimal trickery */
+	width: 1300px;/* width of jpges */
+	margin: 0 auto;
+	position: relative;
+}
+body, 
+.container > div{
+	width: 1300px;
+}
+.container .slide{
+    display: none;
+    padding-top: 30px;
+}
+.guide{
+	background: #fff; /* customize to background color of content */
+	display: block;
+	width: 640px; /* customize to the width of the site or the width of the main content column for optimal trickery */
+	margin: 0 auto;
+	padding: 20px; 
+	overflow: hidden;
+}
+
+p{
+}
+
+a{
+}
+
+strong{
+	font-weight: bold;
+}
+
+cite, em{
+	font-style: italic;
+}
+
+sup, sub {
+    height: 0;
+    line-height: 1;
+    position: relative;
+    vertical-align: baseline;
+    font-size: 10px;
+}
+sup {
+    bottom: 1ex;
+}
+abbr, acronym {
+    border-bottom: 1px dotted #666666;
+    cursor: help;
+}
+
+h1, h2, h3, h4, h5, h5{
+	clear: both;
+}
+
+h1{
+}
+h2{
+}
+h3{
+}
+h4{
+}
+h5{
+}
+h6{
+}
+
+blockquote{
+}
+
+hr{
+	background-color: #E7E7E7;
+    border: 0 none;
+    clear: both;
+    height: 1px;
+}
+
+ul{
+}
+ul li ul{
+}
+ul li{
+}
+
+dl{
+}
+dl dt{
+}
+dl dd{
+}
+
+table{
+}
+th{
+}
+td{
+}
+tr.even td{
+}
+
+/* Image-related classes from Wordpress (forgive their ugliness) */
+.alignright, img.alignright{
+	display: inline;
+    float: right;
+}
+.alignleft, img.alignleft{
+	display: inline;
+    float: left;
+}
+.aligncenter, img.aligncenter{
+	display: block;
+    margin: 0 auto;
+}
+div.wp-caption{
+}
+div.wp-caption p.wp-caption-text{
+}
+
+  </style
+  <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  
+  <!-- include jQuery library --> 
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
+  <!-- include Cycle plugin --> 
+  <script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script> 
+  <script type="text/javascript"> 
+  $(document).ready(function() {    
+    /* SETUP: */
+    /* list the filenames of your images here, within the brackets. */
+    /* filenames should be enclosed in single quotes, i.e. 'image.jpg' */
+    image_array = [<% for image in images %>'<%= image %>',<% end %>];
+    
+    /* insert the client and project name here, within quotes */
+    client_name = '<%= client %>';
+    
+    /* NO MORE EDITING UNTIL CONTENT BODY (see note re: image placeholder) */
+    /***********************************/
+    /***********************************/
+    $('#welcome h2 span').text(client_name);
+    
+    var bc = $('#nav');
+    var last_element = $('#placeholder');
+ 	<% if banner %>
+ 	$(last_element).after($('#welcome'));
+    $("#welcome").show();
+ 	last_element = $('#welcome')
+    <% end %>
+    $.each(image_array, function(index, value){
+      var slide = $('<img>');
+      slide.attr('src', './images/' + value);
+      var slide_holder = $('<div class="slide" id="slide' + index + '">');
+      $(slide_holder).append(slide);
+      $(last_element).after(slide_holder);
+      last_element = slide_holder;
+    });
+    <% if style %>
+    $(last_element).after($('#style_guide'));
+    <% end %>
+    <% if !banner %>
+    $("#slide0").show();
+    <% end %>
+
+    /***********************************/    
+    /**  
+      use "poor man's pager" to include hash 	in URL
+      for easy linking and refreshing
+    */
+    $('.container .slide').each(function (i, e) {
+       var slide_number = parseInt(i + 1);
+       var slide = $(e).attr('id')
+       $('<a id="link-' + slide + '"href="#' + slide + '">' + slide_number + '</a>')
+       .appendTo(bc).click(function(){
+           displaySlide(slide);
+       });
+   });
+  });
+
+   if (location.hash) {
+       displaySlide(location.hash);
+   }
+
+   function displaySlide(slide){
+	   $(".slide").hide();
+	   $("#" + slide).show();
+	   $(".activeSlide").removeClass("activeSlide");
+	   $("#link-" + slide).addClass("activeSlide");
+	   $(window).scrollTop(0);
+   }
+   /***********************************/
+   /***********************************/
+  </script>
+</head>
+<!--
+March 28, 2011
+
+Inspired by:
+http://csswizardry.com/2011/01/the-real-html5-boilerplate/ 
+http://2010dev.wordpress.com/element/
+
+The style guide sample contains images with default Wordpress classes for size and alignment. You may want to change or remove this if WP is not being used.
+
+Replace <img src="http://placehold.it/300x225" /> with the desired dimmensions to build a placeholder of your size.
+
+Edit:
+Replaced PHP directory parsing script with javascript array
+-->
+
+<body id="home">
+
+  <div class="container">
+  	<div id="placeholder"></div>
+  	<% if banner %>
+    <div id="welcome" class="slide branding">
+      <img src="./branding.png" />
+      <h2>Website Composition Preview for: <br /><span></span></h2>
+    </div>
+    <% end %>
+    <% if style %>
+    <!--start style guide-->
+    <div id="style_guide" class="slide">
+      <div class="guide">
+        <h1>Style Guide</h1>
+        <hr />
+        
+        <h1>Heading 1</h1> 
+        <h2>Heading 2</h2> 
+        <h3>Heading 3</h3> 
+        <h4>Heading 4</h4> 
+        <h5>Heading 5</h5> 
+        <h6>Heading 6</h6> 
+        
+        <hr />
+        
+        <p>This is a general paragraph style. Lorem ipsum dolor sit amet, <a title="test link" href="#">test link</a> adipiscing elit. <strong>This is strong.</strong> Nullam dignissim convallis est. Quisque aliquam. <em>This is emphasized.</em> Donec faucibus. Nunc iaculis suscipit dui. 5<sup>3</sup> = 125. Water is H<sub>2</sub>O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. <cite>The New York Times</cite> (That&#8217;s a citation). Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p> 
+        
+        <p>Paragraph praesent rutrum sem dictum est sollicitudin hendrerit. Sed vehicula ligula quis turpis pulvinar tempor. Duis posuere mauris eu mauris gravida vestibulum. Pellentesque sollicitudin, lacus nec dictum ultricies (felis justo faucibus quam) a varius turpis neque aliquet quam. Sed vitae ligula vel risus ultrices rhoncus eu id magna. Sed bibendum porttitor eros non egestas. Fusce in orci velit, ac sodales velit.</p>
+        
+        <!-- Code, var, del, ins, etc will likely not be applicable on most client sites
+        <p><abbr title="Hyper Text Markup Language">HTML</abbr> and <abbr title="Cascading Style Sheets">CSS</abbr> are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.  Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. To copy a file type <code>COPY <var>filename</var></code>. <del>Dinner&#8217;s at 5:00.</del> <ins>Let&#8217;s make that 7.</ins> This <span style="text-decoration:line-through;">text</span> has been struck.</p> 
+        -->
+        
+        <hr /> 
+        
+        <h2>List Types</h2> 
+        
+        <h3>Definition List</h3> 
+        <dl> 
+          <dt>Definition List Title</dt> 
+          <dd>This is a definition list division.</dd> 
+          <dt>Definition</dt> 
+          <dd>An exact statement or description of the nature, scope, or meaning of something</dd> 
+        </dl> 
+        
+        <h3>Ordered List</h3> 
+        <ol> 
+          <li>List Item 1</li> 
+          <li>List Item 2
+            <ol> 
+              <li>Nested list item A</li> 
+              <li>Nested list item B</li> 
+            </ol> 
+          </li> 
+          <li>List Item 3</li> 
+        </ol> 
+          
+        <h3>Unordered List</h3> 
+        <ul> 
+          <li>List Item 1</li> 
+          <li>List Item 2
+            <ul> 
+              <li>Nested list item A</li> 
+              <li>Nested list item B</li> 
+            </ul> 
+          </li> 
+          <li>List Item 3</li> 
+        </ul> 
+        
+        <hr /> 
+        
+        <h2>Table</h2>
+         
+        <table> 
+          <tbody> 
+            <tr> 
+              <th>Table Header 1</th> 
+              <th>Table Header 2</th> 
+              <th>Table Header 3</th> 
+            </tr> 
+            <tr> 
+              <td>Division 1</td> 
+              <td>Division 2</td> 
+              <td>Division 3</td> 
+            </tr> 
+            <tr class="even"> 
+              <td>Division 1</td> 
+              <td>Division 2</td> 
+              <td>Division 3</td> 
+            </tr> 
+            <tr> 
+              <td>Division 1</td> 
+              <td>Division 2</td> 
+              <td>Division 3</td> 
+            </tr> 
+          </tbody> 
+        </table> 
+        
+        <hr /> 
+        
+        <!--Preformatted Text is most likely not be applicable on most client sites  
+        <h2>Preformatted Text</h2> 
+        <p>Typographically, preformatted text is not the same thing as code. Sometimes, a faithful execution of the text requires preformatted text that may not have anything to do with code. Most browsers use Courier and that&#8217;s a good default &#8212; with one slight adjustment, Courier 10 Pitch over regular Courier for Linux users. For example:</p> 
+        
+        <pre>�Beware the Jabberwock, my son!
+            The jaws that bite, the claws that catch!
+        Beware the Jubjub bird, and shun
+            The frumious Bandersnatch!�</pre> -->
+        
+        <!--Code is most likely not be applicable on most client sites  
+        <h3>Code</h3> 
+        <p>Code can be presented inline, like <code>&lt;?php bloginfo('stylesheet_url'); ?&gt;</code>, or within a <code>&lt;pre&gt;</code> block. Because we have more specific typographic needs for code, we&#8217;ll specify Consolas and Monaco ahead of the browser-defined monospace font.</p> 
+        <pre><code>#container {
+          float: left;
+          margin: 0 -240px 0 0;
+          width: 100%;
+        }</code></pre> -->  
+      
+        <!-- <hr /> -->
+        
+        <h2>Blockquotes</h2> 
+        <p>Leading text quisque condimentum scelerisque ligula ut malesuada velit ipsum, imperdiet vel faucibus eget, pharetra at lacus.</p> 
+        
+        <blockquote><p>Blockquote dolor nisl, vel dapibus mi. Proin eu magna massa. Donec iaculis tempus iaculis. Quisque posuere tristique mi vel porta. Nunc rutrum varius aliquet. Etiam dictum, eros in dictum porttitor, metus dui faucibus tellus, ut vestibulum justo sem ut metus.</p> 
+        <p><cite><a href="#">Sed Eleifend</a></cite></p></blockquote> 
+        
+        <p>Trailing text posuere nisi at ante laoreet vel rhoncus ligula mattis.</p> 
+        
+        
+        <hr />
+      
+        <h2>Image Sizes</h2>
+        
+        <h3>Right-aligned medium</h3>
+        <p><img class="alignright size-medium" src="http://placehold.it/300x225" /> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel ultricies sapien. Proin eu accumsan metus. Pellentesque varius aliquet sapien, sed laoreet diam viverra vel. Phasellus condimentum congue ante. Donec porttitor eleifend erat eget faucibus. Vivamus mattis imperdiet sem a volutpat. Cras ultrices tincidunt hendrerit. Nulla facilisi. Morbi id lorem et sapien luctus eleifend. Vestibulum eleifend dapibus ornare. Ut at dui metus, in accumsan nibh. Nam ultricies turpis sit amet erat elementum nec mollis tellus vehicula. Phasellus mollis faucibus odio, id malesuada justo venenatis in. Sed ultricies, augue quis ullamcorper condimentum, diam turpis laoreet risus, quis pretium urna diam et nibh. Nunc molestie mauris vel est hendrerit tempus. Nam elit enim, pellentesque sit amet fringilla quis, bibendum at tellus. Nunc at tortor sapien. Nam feugiat libero ut nisl sodales eleifend. Nulla laoreet metus in dolor mattis vitae interdum massa.</p>
+        
+        
+        <h3>Left-aligned Medium</h3>
+        <p><img class="alignleft size-medium" src="http://placehold.it/225x300" /> Duis nec elit dui, sit amet feugiat urna. Aenean interdum laoreet pellentesque. Nullam neque magna, euismod nec varius et, aliquet a neque. Ut ac vestibulum odio. Aenean non lobortis nulla. Nulla facilisi. In cursus, sem eu ultricies elementum, nulla lacus pretium diam, ac congue mauris velit ut velit. Fusce ante odio, adipiscing eu interdum sit amet, laoreet id lacus. Nam ante nulla, gravida a placerat eu, fermentum vel sem. Praesent eros augue, congue et congue a, varius sit amet ipsum.</p>
+        
+        <p>Vivamus iaculis mollis fringilla. Sed convallis consectetur tincidunt. Aenean a nunc odio, a commodo elit. In quis risus id dolor porta iaculis. Sed vel felis eu neque molestie eleifend vitae et sem. Aliquam magna est, sodales et rutrum ac, ullamcorper at ipsum. Sed volutpat accumsan tortor vulputate pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sit amet elit a augue bibendum tempus. Praesent auctor mauris vel purus mattis vel imperdiet arcu pulvinar. Nunc est nisi, viverra in tincidunt vitae, sodales vitae mi. Quisque nisl elit, luctus viverra venenatis eget, auctor pharetra turpis. Nam vel justo arcu, sollicitudin blandit quam.</p>
+        
+        
+        <h3>Full-Width</h3>
+        <p>Aenean eu urna felis. Vivamus placerat neque ac diam imperdiet eget sollicitudin nisl ornare. Ut adipiscing neque non sapien malesuada ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce non tincidunt dui.</p>
+        
+        <p><img class="aligncenter size-full" src="http://placehold.it/640x425" /></p>
+        
+        <p>Suspendisse convallis pretium varius. Duis vitae sem ut quam dignissim pellentesque at id dolor. Etiam mi est, scelerisque sed viverra et, sollicitudin eget orci. Donec felis erat, ultrices sit amet molestie quis, ultrices nec libero. Donec eu odio neque, luctus laoreet urna. Integer eget augue ante, a facilisis dolor. Morbi non dui at lectus dignissim pulvinar. Nullam condimentum egestas feugiat. Aliquam elementum pharetra nibh id suscipit. Nam viverra tristique turpis.</p>
+      
+        <hr />
+      
+        <h2>Images with captions</h2>
+        
+        <div class="wp-caption alignright" style="width: 310px"><!--Wordpress will generate an inline width of (image with + 10px)-->
+          <img class="size-medium" src="http://placehold.it/300x225" />
+          <p class="wp-caption-text">Sample image caption</p>
+        </div>
+        
+        <p>Fusce molestie erat vel augue lobortis sit amet ultrices eros interdum. Suspendisse lobortis gravida sapien, in mattis velit rutrum a. Vivamus condimentum neque scelerisque arcu cursus id viverra tellus adipiscing. In leo justo, gravida in suscipit lacinia, euismod non ligula. Nullam non cursus nisi. Pellentesque eu lectus lectus, sit amet imperdiet mauris. Phasellus leo metus, vulputate at tincidunt id, dictum sit amet purus. Praesent at nisi tortor, et consequat elit. Phasellus gravida velit tempus eros aliquam porttitor. Vivamus tempor ultrices ligula eu molestie. Donec eu enim nibh, nec pellentesque elit. Nam a ultricies felis. Duis cursus, massa ut mollis faucibus, enim ligula pulvinar felis, vitae bibendum diam sem non erat. In fringilla nisi vitae tortor varius at sagittis enim condimentum. Aliquam id leo at mi varius dictum et nec quam. Pellentesque tortor nunc, dignissim at scelerisque a, adipiscing non neque. Aliquam erat volutpat.</p>
+        
+        <p>Vivamus sit amet sem sed massa pharetra rhoncus et vitae libero. Duis sed lectus a tellus egestas ornare sit amet in dolor. Curabitur sed lectus elit. Maecenas et purus ante. Donec sed lorem eget quam aliquam pharetra at sit amet nulla. Nam in nunc sem, feugiat tincidunt justo. Aliquam erat volutpat. Morbi ligula orci, dignissim in porta vel, fermentum sit amet nunc. Suspendisse eu tellus id lacus laoreet lacinia. Sed eleifend, odio at consectetur volutpat, nibh velit ultrices neque, quis ornare diam mauris non augue. Donec sollicitudin scelerisque orci in mollis. Nam posuere nisi at ante laoreet vel rhoncus ligula mattis. Nam dapibus vestibulum pharetra.</p>
+      
+        <h2>Thumbnails</h2>
+        <p><img class="alignright size-thumbnail" src="http://placehold.it/150x150" />
+        Aenean interdum laoreet eros, ut sollicitudin velit tempor et. Aliquam sit amet euismod ante. Quisque orci orci, scelerisque et iaculis nec, interdum at erat. Cras eget risus nec orci mollis pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec non risus nisl, eu feugiat nulla. Etiam congue ornare dui rhoncus tincidunt.</p>
+        
+        <p><img class="alignleft size-thumbnail" src="http://placehold.it/150x150" />
+        Aenean interdum laoreet eros, ut sollicitudin velit tempor et. Aliquam sit amet euismod ante. Quisque orci orci, scelerisque et iaculis nec, interdum at erat. Cras eget risus nec orci mollis pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec non risus nisl, eu feugiat nulla. Etiam congue ornare dui rhoncus tincidunt.</p>
+      
+      </div><!--/guide-->
+    </div><!--/end style guide-->
+    <% end %>
+  </div><!--/container-->
+  
+  <div id="nav">Preview page: </div> 
+
+</body>
+</html>
