@@ -12,8 +12,8 @@ require "capify-fb/nginx" # handles nginx restart
 require "capify-fb/sync" # sync assets and db between stages. sync:down pulls from server sync:up pushes to server
 
 # handles s3 credentials outside of repository and appends to config/application.rb file
-# set :use_s3, true
-# require "capify-fb/s3"
+set :use_s3, true
+require "capify-fb/s3"
 
 # Which folders to sync.
 # Remember to run sync:setup before deploying.
