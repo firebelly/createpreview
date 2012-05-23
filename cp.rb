@@ -39,10 +39,14 @@ get '/:project/' do
   rescue ResponseError => error
     halt "The images folder does not seem to exist."
   end
-  images = []
-  pics.each do |pic|
-    image = File.basename("/#{pic.key()}")
-    images << image if image != 'images'
+  if pics.length > 1
+    images = []
+    pics.each do |pic|
+      image = File.basename("/#{pic.key()}")
+      images << image if image != 'images'
+    end
+  else
+    halt "The images folder does not seem to exist or is empty.  Check the folder name (#{project}) and try again."
   end
   
   erb :form, :locals => { :project => project, :images => images }
