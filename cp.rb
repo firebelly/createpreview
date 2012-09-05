@@ -39,7 +39,7 @@ get '/:project/' do
   rescue ResponseError => error
     halt "The images folder does not seem to exist."
   end
-  if pics.length > 1
+  if pics.length >= 1
     images = []
     pics.each do |pic|
       image = File.basename("/#{pic.key()}")
