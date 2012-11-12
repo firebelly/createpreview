@@ -1,8 +1,8 @@
 GIT
   remote: git@github.com:firebelly/capify-fb
-  revision: 258e2f456c05d27462e3a78a80d71f11ad77f526
+  revision: 444a2faf6b8fbe7ddda76906dbb1ddf8c80f3888
   specs:
-    capify-fb (1.1.9)
+    capify-fb (1.2.0)
       capistrano
       capistrano-ext
       rvm-capistrano
