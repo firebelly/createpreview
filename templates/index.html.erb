@@ -11,7 +11,7 @@
   <![endif]-->
   
   <!-- include jQuery library --> 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <!-- include Cycle plugin --> 
   <script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script> 
   <script type="text/javascript">
@@ -24,6 +24,31 @@
   client_name = '<%= client %>';
   </script>
   <script type="text/javascript" src="http://client-preview.firebellydesign.com/createpreview/js/slides.js"></script>
+  <% if user != '' && pass != '' %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#nav').css('display', 'none');
+      $('.loginbox #username').focus();
+
+      $('.loginbox #submit').click(function() {
+          event.preventDefault(); // prevent PageReLoad
+          $('.loginbox .error').fadeOut(); // hide error msg
+
+          var ValEmail = $('.loginbox #username').val() == '<%= user %>'; // Email Value
+          var ValPassword = $('.loginbox #password').val() == '<%= pass %>'; // Password Value
+
+          if (ValEmail && ValPassword) { // if ValEmail & ValPass are as above
+              $('.loginbox').fadeOut();
+              $('.container').fadeIn();
+              $('#nav').fadeIn();
+          }
+          else {
+              $('.loginbox .error').fadeIn(); // show error msg
+          }
+      });
+  });
+  </script>
+  <% end %>
 </head>
 <!--
 March 28, 2011
@@ -41,8 +66,17 @@ Replaced PHP directory parsing script with javascript array
 -->
 
 <body id="home">
-
-  <div class="container">
+  <form class="loginbox" autocomplete="off">
+    <fieldset>
+        <p style="display: none;" class="error">Error. Please enter correct email &amp; password.</p>
+        <label for="username">Username</label>
+        <input type="text" id="username" />
+        <label for="username">Password</label>
+        <input type="password" id="password" />
+        <input type="submit" id="submit" value="LOG IN" />
+    </fieldset>
+  </form>
+  <div class="container" style="display: none;" >
   	<% if banner %>
     <div id="welcome" class="slide branding">
       <img src="http://client-preview.firebellydesign.com/createpreview/branding.png" />

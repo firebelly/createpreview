@@ -3,7 +3,7 @@ source :rubygems
 
 gem 'sinatra'
 
-gem 'aws-s3'
+gem 'aws-sdk'
 
 gem 'unicorn'
 

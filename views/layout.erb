@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Firebelly Client Previews</title>
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+      html,body {
+        font: 14px/1.4em 'Inconsolata', sans-serif;
+        background: #d1e1e1;
+        color: #2F425F;
+      }
+      h1 {
+        font: 24px/1.4em 'Inconsolata', sans-serif;
+        padding: 40px 10px 10px;
+        margin: 0 0 10px;
+        border-bottom: 1px dotted #2F425F;
+      }
+      .wrap { 
+        margin: 0 15%; 
+      }
+      ul,li { margin:0; padding:0; }
+      a { 
+        display: block;
+        padding: 4px 10px;
+        color: #013568;
+        text-decoration: none;
+      }
+      a:hover {
+        background: #c4d3d3;
+        color: #011b35; 
+      }
+      .columns {
+        -moz-column-count:3; -moz-column-gap:2.5em;
+        -webkit-column-count:3; -webkit-column-gap:2.5em;
+        column-count:3; column-gap:2.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

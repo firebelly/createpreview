@@ -1,34 +1,43 @@
 require 'sinatra'
 require 'rubygems'
-require 'right_aws'
-
-module RightAws
-  class S3
-    class Bucket
-      def list(prefix, delimiter = '/')
-        list = []
-        @s3.interface.incrementally_list_bucket(@name, {'prefix' => prefix, 'delimiter' => delimiter}) do |item|
-          list << item[:common_prefixes]
-        end
-        list.flatten.sort_by(&:downcase)
-      end
-    end
-  end
-end
+require 'aws-sdk'
 
 enable :sessions
 
+helpers do
+  def protected!
+    unless session[:logged_in]
+      if authorized?
+        session[:logged_in] = true
+      else
+        response['WWW-Authenticate'] = %(Basic realm="Restricted Area")
+        throw(:halt, [401, "Not authorized\n"])
+      end
+    end
+  end
+
+  def authorized?
+    @auth ||=  Rack::Auth::Basic::Request.new(request.env)
+    @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['admin', 'admin']
+  end
+end
+
 s3_config = YAML::load(File.open('config/s3.yml'))
+
+AWS.config(
+  :access_key_id => s3_config['S3_KEY'],
+  :secret_access_key => s3_config['S3_SECRET']
+)
  
-s3 = RightAws::S3.new(s3_config['S3_KEY'], s3_config['S3_SECRET'])
-$bucket = s3.bucket(s3_config['S3_BUCKET'])
+s3 = AWS::S3.new
+$bucket = s3.buckets[s3_config['S3_BUCKET']]
 
 def get_projects
   begin
-    ignore_projects = ['example/', 'example-update/', 'createpreview/', 'test/']
-    projects = $bucket.list("")
-    projects = projects - ignore_projects
-  rescue ResponseError => error
+    ignore_projects = ["example/", "example-update/", "createpreview/", "test/"]
+    project_tree = $bucket.objects.as_tree
+    projects = project_tree.children.select(&:branch?).collect(&:prefix).sort_by(&:downcase) - ignore_projects
+  rescue AWS::Errors
     halt "There are no projects."
   end
   return projects
@@ -40,16 +49,18 @@ get '/' do
 end
 
 get '/success/' do
+  protected!
   p = session[:project]
   url = "http://client-preview.firebellydesign.com/#{p}/index.html"
   erb :success, :locals => { :p => p, :url => url }
 end
 
 get '/:project/' do
+  protected!
   project = params[:project]
   
   begin
-    pics = $bucket.keys('prefix' => "#{project}/images/")
+    pics = $bucket.objects.with_prefix("#{project}/images/").collect(&:key)
   rescue ResponseError => error
     halt "The images folder does not seem to exist."
   end
@@ -57,7 +68,7 @@ get '/:project/' do
   if pics.length >= 1
     images = []
     pics.each do |pic|
-      images << File.basename("/#{pic.full_name}") unless pic.full_name.end_with?('images/')
+      images << File.basename("/#{pic}") unless pic.end_with?('images/')
     end
   else
     halt "The images folder does not seem to exist or is empty.  Check the folder name (#{project}) and try again."
@@ -66,27 +77,36 @@ get '/:project/' do
   erb :form, :locals => { :project => project, :images => images }
 end
 
-post '/:project/' do  
+post '/:project/' do
+  protected!
   project = params[:project]
   client = params[:client]
   images = params[:images]
   banner = params[:banner]
-  style = params[:style]  
+  style = params[:style]
+  user = params[:user]
+  pass = params[:password]
   
   template = File.read(File.join(File.dirname(__FILE__), 'templates', 'index.html.erb'))
   index = ERB.new(template)
   begin
-    key = $bucket.key("#{project}/index.html")
-    key.put(index.result(binding), 'public-read')
-  rescue RightAws::AwsError
+    $bucket.objects["#{project}/index.html"].write(index.result(binding))
+  rescue AWS::Errors
     halt "Could not setup the index file."
   end
   
-  key_data = open(File.join(File.dirname(__FILE__), 'templates', 'custom.css'))
   begin
-    key2 = $bucket.key("#{project}/css/custom.css")
-    key2.put(key_data, 'public-read')
-  rescue RightAws::AwsError
+    $bucket.objects["#{project}/css/custom.css"].write(open(File.join(File.dirname(__FILE__), 'templates', 'custom.css')))
+  rescue AWS::Errors
+    halt "Could not setup the custom css file."
+  end
+
+  template = File.read(File.join(File.dirname(__FILE__), 'templates', 'main_index.html.erb'))
+  index = ERB.new(template)
+  @projects = get_projects
+  begin
+    $bucket.objects["index.html"].write(index.result(binding))
+  rescue AWS::Errors
     halt "Could not setup the custom css file."
   end
   
