@@ -4,17 +4,17 @@
 <form id="cpForm" action="/<%= project %>/" method="post">
   <label for="client">Client and project name here:</label><br/>
   <input type="text" name="client" class="required" ><br/><br/>
-  <label for="user">Username:</label><br/>
-  <input type="text" name="user"><br/>
-  <label for="password">Password:</label><br/>
+  <label for="password">Password: <em>(optional)</em></label><br/>
   <input type="text" name="password"><br/><br/>
-  <label for="images">Select images to use:</label><br/>
-  <% for image in images %>
-  <input type="checkbox" name="images[]" value="<%= image %>"><%= image %></br>
-  <% end %>
-  <br/>
+  <label for="images" id="images-label">Select images to use:</label><br/>
+    <div class="images">
+    <% for image in images %>
+      <input type="checkbox" name="images[]" value="<%= image %>"><%= image %></br>
+    <% end %>
+    </div>
+  <br>
   <input type="checkbox" name="banner" checked>Include Firebelly Banner</br>
   <input type="checkbox" name="style" checked>Include style guide</br></br>
   <div>NOTE: If the the index.html file already exists, it will be replaced.</div>
-  <input type="submit" value="Send">
+  <input type="submit" value="Submit">
 </form>

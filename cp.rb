@@ -44,6 +44,7 @@ def get_projects
 end
 
 get '/' do
+  protected!
   projects = get_projects
   erb :projects, :locals => { :projects => projects }
 end
@@ -84,7 +85,6 @@ post '/:project/' do
   images = params[:images]
   banner = params[:banner]
   style = params[:style]
-  user = params[:user]
   pass = params[:password]
   
   template = File.read(File.join(File.dirname(__FILE__), 'templates', 'index.html.erb'))

@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Firebelly Client Previews</title>
+    <title>Firebelly Createpreview</title>
     <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
     <style type="text/css">
       html,body {
@@ -14,17 +14,21 @@
         margin: 0 0 10px;
         border-bottom: 1px dotted #2F425F;
       }
+      ol {
+        padding-bottom: 10px;
+        border-bottom: 1px dotted #2F425F;
+      }
       .wrap { 
         margin: 0 15%; 
       }
       ul,li { margin:0; padding:0; }
-      a { 
+      .columns a { 
         display: block;
         padding: 4px 10px;
         color: #013568;
         text-decoration: none;
       }
-      a:hover {
+      .columns a:hover {
         background: #c4d3d3;
         color: #011b35; 
       }
@@ -32,6 +36,14 @@
         -moz-column-count:3; -moz-column-gap:2.5em;
         -webkit-column-count:3; -webkit-column-gap:2.5em;
         column-count:3; column-gap:2.5em;
+      }
+      label a { 
+        font-size: 12px; 
+        margin-left: 8px;
+      }
+      input[type=submit] {
+        font-size: 16px;
+        margin: 8px 0;
       }
     </style>
   </head>
